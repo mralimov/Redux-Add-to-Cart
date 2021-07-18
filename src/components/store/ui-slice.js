@@ -1,7 +1,15 @@
-import React from 'react';
+import { createSlice } from '@reduxjs/toolkit';
 
-function uiSlice(props) {
-  return <div></div>;
-}
+const uiSlice = createSlice({
+  name: 'ui',
+  initialState: { cartIsVisible: false },
+  reducers: {
+    toggle(state) {
+      state.cartIsVisible = !state.cartIsVisible;
+    },
+    increment(state) {},
+    decrement() {},
+  },
+});
 
 export default uiSlice;
