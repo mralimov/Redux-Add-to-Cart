@@ -25,7 +25,16 @@ state.totalQuantity++;
 state.totalPrice = existingItem.totalPrice + newItem.price
       }
     },
-    removeItemFromCart(state, action) {},
+    removeItemFromCart(state, action) {
+      const id = action.payload
+      const existingItem = state.items.find(item => item.id === id)
+      state.totalQuantity--;
+      if(existingItem === 1) {
+        state.items = state.items.find(item => item.id !== id)
+      } else {
+        state.totalQuantity--;
+      }
+    },
   },
 });
 
