@@ -16,13 +16,13 @@ const DUMMY_PRODUCTS = [
   },
   {
     title: 'My third Car',
-    price: 1499,
+    price: 1499.99,
     description: 'This is a third vehicle - Audi!',
     id: 'p3',
   },
   {
     title: 'My fouth Car',
-    price: 850,
+    price: 850.99,
     description: 'This is a fouth vehicle - Porsche!',
     id: 'p4',
   },

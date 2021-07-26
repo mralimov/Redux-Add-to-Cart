@@ -8,10 +8,9 @@ const CartItem = (props) => {
   const { title, quantity, total, price, id } = props.items;
   const handleAddItem = () => {
     dispatch(
-      cartActions.additemToCart({
+      cartActions.addItemToCart({
         price,
-        quantity,
-        total,
+        title,
         id,
       })
     );
