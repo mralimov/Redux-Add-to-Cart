@@ -6,6 +6,8 @@ import { useEffect, Fragment } from 'react';
 import { uiAction } from './components/store/ui-slice';
 import Notification from './components/UI/Notification';
 
+let isInitial = true;
+
 function App() {
   const dispatch = useDispatch();
   const showCart = useSelector((state) => state.ui.cartIsVisible);
@@ -22,7 +24,7 @@ function App() {
         })
       );
       const response = await fetch(
-        'https://redux-add-to-cart-default-rtdb.firebaseio.com/cart.json',
+        'https://redux-add-to-cart-default-rtdb.firebaseio.com/',
         {
           method: 'PUT',
           body: JSON.stringify(cart),
@@ -40,10 +42,15 @@ function App() {
         })
       );
     };
+
+    if (isInitial) {
+      isInitial = false;
+      return;
+    }
     sendCartData().catch((error) => {
       dispatch(
         uiAction.showNotification({
-          status: 'Error!',
+          status: 'error',
           title: 'Error!!',
           message: `Sending cart data failed ${error.message}`,
         })
