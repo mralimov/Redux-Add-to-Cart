@@ -1,6 +1,6 @@
 import classes from './CartButton.module.css';
 import { useDispatch } from 'react-redux';
-import { uiAction } from '../store/ui-slice';
+import { uiAction } from '../../store/ui-slice';
 import { useSelector } from 'react-redux';
 const CartButton = (props) => {
   const dispatch = useDispatch();
